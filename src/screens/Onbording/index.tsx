@@ -42,6 +42,7 @@ const Onbording: React.FC = () => {
             <Button
               name="Get Started"
               backgroundColor="green"
+              color="white"
               onPress={ () => navigation.navigate("SignIn")}
             />
           </BoxContent>

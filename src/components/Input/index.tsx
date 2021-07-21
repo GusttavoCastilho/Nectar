@@ -1,22 +1,17 @@
-import React from "react";
+import React from 'react'
 
-import { TextInputProps } from "react-native";
+import * as S from './styles'
+import { SearchSvg } from '../../svg/index'
 
-import { Container, Label, TextInput } from "./styles";
-
-interface InputProps extends TextInputProps {
-  label: string;
-}
-
-const Input: React.FC<InputProps> = ({ label, ...rest }) => {
+const Input: React.FC = () => {
   return (
-    <>
-      <Container>
-        <Label>{label}</Label>
-        <TextInput />
-      </Container>
-    </>
-  );
-};
+    <S.Container>
+      <S.Left>
+        <SearchSvg />
+      </S.Left>
+      <S.Input placeholder="Search Store" />
+    </S.Container>
+  )
+}
 
 export default Input;

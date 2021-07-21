@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 export const ImageHeader = styled.Image`
     width: 100%;
-    height: 374px;
+    max-height: 375px;
 `;
 
 export const BoxContent = styled.View`
@@ -22,6 +22,7 @@ export const TextHeader = styled.Text`
     color: ${Colors.darkText};
 
     padding-left: 24px;
+    padding-top: 20px;
 `;
 
 export const Diviser = styled.View`

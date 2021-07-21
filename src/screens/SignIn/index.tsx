@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import AppLoading from "expo-app-loading";
 import { useFonts, Inter_600SemiBold } from "@expo-google-fonts/inter";
+import {LogBox } from 'react-native'
 
 import {
   Container,
@@ -20,6 +21,7 @@ import HeaderImage from "../../../assets/images/headerSignIn.png";
 import GoogleImage from "../../../assets/images/google.png";
 import FacebookImage from "../../../assets/images/facebook.png";
 import Button from "../../components/Button";
+LogBox.ignoreAllLogs()
 
 const SignIn: React.FC = () => {
   const [user, setUser] = useState(null);
@@ -30,7 +32,7 @@ const SignIn: React.FC = () => {
  const checkIfLoggedIn = () => {
     firebase.auth().onAuthStateChanged(function(user: any) {
       if(user) {
-        navigation.navigate('Dashboard');
+        navigation.navigate('shop');
       } else {
         navigation.navigate('SignIn');
       }
@@ -50,9 +52,10 @@ const SignIn: React.FC = () => {
       scopes: ['profile', 'email'],
     });
 
-    console.log(result)
+    LogBox.ignoreAllLogs()
 
     if (result.type === 'success') {
+      navigation.navigate('shop')
       return result.accessToken;
     } else {
       return { cancelled: true };
@@ -76,6 +79,8 @@ const signUpFacebook = async () => {
       // console.log((await response.json()).name);
       const data = await response.json();
       setUser(data);
+      navigation.navigate('shop')
+      LogBox.ignoreAllLogs()
     } else {
       // type === 'cancel'
     }
@@ -107,12 +112,14 @@ const signUpFacebook = async () => {
         <Button
           name="Continue with Google"
           backgroundColor="lightBlue"
+          color="white"
           icon={GoogleImage}
           onPress={signInWithGoogleAsync}
         />
         <Button
           name="Continue with Facebook"
           backgroundColor="darkBlue"
+          color="white"
           icon={FacebookImage}
           onPress={signUpFacebook}
         />

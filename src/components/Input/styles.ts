@@ -3,21 +3,24 @@ import Colors from '../../../constants/Colors';
 
 export const Container = styled.View`
     width: 90%;
-    height: 70px;
-
-    margin-top: 20px;
+    height: 50px;
+    background-color: ${Colors.input};
+    border-radius: 15px;
+    flex-direction: row;
 `
 
-export const Label = styled.Text`
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 29px;
-    color: ${Colors.grayText};
+export const Left = styled.View`
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 20px;
 `
 
-export const TextInput = styled.TextInput`
+export const Input = styled.TextInput`
     width: 100%;
-    height: 40px;
-    border-bottom-width: 2px;
-    border-color: #E2E2E2;
+    height: 100%;
+    
+    font-size: 14px;
+    font-weight: 600;
+    color: ${Colors.grayText};
 `
