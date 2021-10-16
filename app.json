@@ -9,8 +9,7 @@
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#53B175"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,11 +21,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "nectar.com.br",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+      "package": "nectar.com.br"
+      
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
