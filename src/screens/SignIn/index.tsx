@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import * as Google from 'expo-google-app-auth';
-import * as Facebook from "expo-facebook";
-import firebase from 'firebase'
+import React from "react";
+import * as AuthSession from "expo-auth-session";
 import { useNavigation } from "@react-navigation/native";
 
 import AppLoading from "expo-app-loading";
 import { useFonts, Inter_600SemiBold } from "@expo-google-fonts/inter";
-import {LogBox } from 'react-native'
+import { LogBox } from "react-native";
 
 import {
   Container,
@@ -17,78 +15,36 @@ import {
   Description,
 } from "./styles";
 
+import Button from "../../components/Button";
+
 import HeaderImage from "../../../assets/images/headerSignIn.png";
 import GoogleImage from "../../../assets/images/google.png";
 import FacebookImage from "../../../assets/images/facebook.png";
-import Button from "../../components/Button";
-LogBox.ignoreAllLogs()
+
+LogBox.ignoreAllLogs();
 
 const SignIn: React.FC = () => {
-  const [user, setUser] = useState(null);
-  console.log(user);
-
   const navigation = useNavigation();
 
- const checkIfLoggedIn = () => {
-    firebase.auth().onAuthStateChanged(function(user: any) {
-      if(user) {
-        navigation.navigate('shop');
-      } else {
-        navigation.navigate('SignIn');
+  async function signInWithGoogle() {
+    try {
+      const CLIENT_ID =
+        "130744813388-3ee4gj91dn3hgulrkpd11t6vdqpv25bv.apps.googleusercontent.com";
+      const REDIRECT_URI = "https://auth.expo.io/@gustavocasttilho/nectar";
+      const RESPONSE_TYPE = "token";
+      const SCOPE = encodeURI("profile email");
+
+      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+
+      const response = await AuthSession.startAsync({ authUrl });
+
+      if (response.type === "success") {
+        navigation.navigate("shop");
       }
-    }.bind(checkIfLoggedIn))
-  }
-
-  useEffect(() => {
-    checkIfLoggedIn();
-  },[]);
-
-  async function signInWithGoogleAsync() {
-  try {
-    const result = await Google.logInAsync({
-      behavior: 'web',
-      androidClientId: '1020916271789-22fhp9bidr84dpopjde2h13vviohommj.apps.googleusercontent.com',
-      // iosClientId: YOUR_CLIENT_ID_HERE,
-      scopes: ['profile', 'email'],
-    });
-
-    LogBox.ignoreAllLogs()
-
-    if (result.type === 'success') {
-      navigation.navigate('shop')
-      return result.accessToken;
-    } else {
-      return { cancelled: true };
+    } catch (error) {
+      throw new Error(`${error}`);
     }
-  } catch (e) {
-    return { error: true };
   }
-}
-
-const signUpFacebook = async () => {
-  try {
-    await Facebook.initializeAsync("2868601346728788");
-    const request = await Facebook.logInWithReadPermissionsAsync({
-      permissions: ["public_profile", "email"],
-    });
-    if (request.type === "success") {
-      // Get the user's name using Facebook's Graph API
-      const response = await fetch(
-        `https://graph.facebook.com/me?fields=id,name,picture.type(large),email&access_token=${request.token}`
-      );
-      // console.log((await response.json()).name);
-      const data = await response.json();
-      setUser(data);
-      navigation.navigate('shop')
-      LogBox.ignoreAllLogs()
-    } else {
-      // type === 'cancel'
-    }
-  } catch ({ message }) {
-    alert(`Facebook Login Error: ${message}`);
-  }
-};
-
 
   let [fontsLoaded] = useFonts({
     Inter_600SemiBold,
@@ -114,14 +70,13 @@ const signUpFacebook = async () => {
           backgroundColor="lightBlue"
           color="white"
           icon={GoogleImage}
-          onPress={signInWithGoogleAsync}
+          onPress={signInWithGoogle}
         />
         <Button
           name="Continue with Facebook"
           backgroundColor="darkBlue"
           color="white"
           icon={FacebookImage}
-          onPress={signUpFacebook}
         />
       </BoxContent>
     </Container>
