@@ -1,53 +1,45 @@
-import React from 'react'
-import BananaImg from '../../../../assets/images/banana.png'
-import MacaImg from '../../../../assets/images/maca.png'
-import pimentaoImg from '../../../../assets/images/pimentao.png'
-import gengibreImg from '../../../../assets/images/gengibre.png'
-import beefboneImg from '../../../../assets/images/beefbone.png'
-import broilerChickenImg from '../../../../assets/images/broilerChicken.png'
-
 export const items = [
     {
         id: 1,
-        image: `${BananaImg}`,
+        image: require('../../../../assets/images/banana.png'),
         name: "Organic Bananas",
         description: "7pcs, Priceg",
         price: "$4.99"
     },
     {
         id: 2,
-        image: `${MacaImg}`,
+        image: require('../../../../assets/images/maca.png'),
         name: "Red Apple",
         description: "1kg, Priceg",
         price: "$4.99"
     },
     {
         id: 3,
-        image: `${pimentaoImg}`,
+        image: require('../../../../assets/images/pimentao.png'),
         name: "Bell Pepper Red",
         description: "1kg, Priceg",
-        price: "$4.99" 
+        price: "$4.99"
     }
 ]
 
 export const best_items = [
     {
         id: 1,
-        image: `${pimentaoImg}`,
+        image: require('../../../../assets/images/pimentao.png'),
         name: "Bell Pepper Red",
         description: "1kg, Priceg",
         price: "$4.99"
     },
     {
         id: 2,
-        image: `${gengibreImg}`,
+        image: require('../../../../assets/images/gengibre.png'),
         name: "Ginger",
         description: "250gm, Priceg",
-        price: "$4.99"  
+        price: "$4.99"
     },
     {
         id: 3,
-        image: `${BananaImg}`,
+        image: require('../../../../assets/images/banana.png'),
         name: "Organic Bananas",
         description: "7pcs, Priceg",
         price: "$4.99"
@@ -57,21 +49,21 @@ export const best_items = [
 export const carnes_items = [
     {
         id: 1,
-        image: `${beefboneImg}`,
+        image: require('../../../../assets/images/beefbone.png'),
         name: "Beef Bone",
         description: "1kg, Priceg",
         price: "$4.99"
     },
     {
         id: 2,
-        image: `${broilerChickenImg}`,
+        image: require('../../../../assets/images/broilerChicken.png'),
         name: "Broiler Chicken",
         description: "1kg, Priceg",
         price: "$4.99"
     },
     {
         id: 3,
-        image: `${beefboneImg}`,
+        image: require('../../../../assets/images/beefbone.png'),
         name: "Beef Bone",
         description: "1kg, Priceg",
         price: "$4.99"

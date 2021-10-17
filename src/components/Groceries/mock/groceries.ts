@@ -1,16 +1,13 @@
-import PulsesImg from '../../../../assets/images/pulses.png'
-import RiceImg from '../../../../assets/images/rice.png'
-
 export const groceries = [
     {
         id: 1,
-        image: `${PulsesImg}`,
+        image: require('../../../../assets/images/pulses.png'),
         title: 'Pulses',
         color: "orange"
     },
     {
         id: 2,
-        image: `${RiceImg}`,
+        image: require('../../../../assets/images/rice.png'),
         title: 'Rice',
         color: "green"
     }
