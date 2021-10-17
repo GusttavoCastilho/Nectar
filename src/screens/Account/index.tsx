@@ -1,6 +1,5 @@
 import React from "react";
 
-import { View, Text } from "react-native";
 import * as S from "./styles";
 
 import ImageUser from "../../../assets/images/user-image.png";

@@ -1,10 +1,11 @@
 import React from "react";
+import { ImageSourcePropType } from "react-native";
 import NextImg from "../../../assets/images/next.png";
 import * as S from "./styles";
 
 export type MenuAccountProps = {
   name: string;
-  icon: string | any;
+  icon: ImageSourcePropType;
   widthImg: string;
   heightImg: string;
 };
