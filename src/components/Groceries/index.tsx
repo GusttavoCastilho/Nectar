@@ -1,11 +1,10 @@
 import React from "react";
 import { ImageSourcePropType } from "react-native";
 import * as S from "./styles";
-import PulsesImg from "../../../assets/images/pulses.png";
 
 export type GroceriesProps = {
   id?: number;
-  image: ImageSourcePropType | React.ReactNode | any;
+  image: ImageSourcePropType;
   title: string;
   color: string;
 };

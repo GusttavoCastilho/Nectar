@@ -17,6 +17,7 @@ export const Header = styled.View`
 export const UserImage = styled.Image`
     width: 63.44px;
     height: 64.32px;
+    border-radius: 50px;
 `
 
 export const BoxInfo = styled.View`
@@ -39,6 +40,6 @@ export const Content = styled.View`
     margin-top: 40px;
 `
 
-export const ButtonBox = styled.View `
+export const ButtonBox = styled.View`
     margin-top: 40px;
 `

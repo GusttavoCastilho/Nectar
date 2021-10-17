@@ -1,17 +1,13 @@
 import React from "react";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from "@react-navigation/native";
-import { Onbording, SignIn } from "../../src/screens";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Dashboard from '../screens/Dashboard'
+import { Tabs } from "../navigation/BottomTabNavigator";
 
 export default function MyTabs() {
-  const Tab = createBottomTabNavigator();
+  const AppRoutes = createStackNavigator();
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Dashboard" component={Dashboard} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AppRoutes.Navigator screenOptions={{ headerShown: false }}>
+      <AppRoutes.Screen name="shop" component={Tabs} />
+    </AppRoutes.Navigator>
   );
 }

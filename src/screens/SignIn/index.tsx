@@ -1,10 +1,10 @@
 import React from "react";
-import * as AuthSession from "expo-auth-session";
-import { useNavigation } from "@react-navigation/native";
+import { Alert, LogBox } from "react-native";
 
 import AppLoading from "expo-app-loading";
 import { useFonts, Inter_600SemiBold } from "@expo-google-fonts/inter";
-import { LogBox } from "react-native";
+
+import { useAuth } from "../../context/auth";
 
 import {
   Container,
@@ -24,25 +24,13 @@ import FacebookImage from "../../../assets/images/facebook.png";
 LogBox.ignoreAllLogs();
 
 const SignIn: React.FC = () => {
-  const navigation = useNavigation();
+  const { signInWithGoogle } = useAuth();
 
-  async function signInWithGoogle() {
+  async function handleSignInWithGoogle() {
     try {
-      const CLIENT_ID =
-        "130744813388-3ee4gj91dn3hgulrkpd11t6vdqpv25bv.apps.googleusercontent.com";
-      const REDIRECT_URI = "https://auth.expo.io/@gustavocasttilho/nectar";
-      const RESPONSE_TYPE = "token";
-      const SCOPE = encodeURI("profile email");
-
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
-
-      const response = await AuthSession.startAsync({ authUrl });
-
-      if (response.type === "success") {
-        navigation.navigate("shop");
-      }
+      await signInWithGoogle();
     } catch (error) {
-      throw new Error(`${error}`);
+      Alert.alert("Could not connect with your google account");
     }
   }
 
@@ -70,7 +58,7 @@ const SignIn: React.FC = () => {
           backgroundColor="lightBlue"
           color="white"
           icon={GoogleImage}
-          onPress={signInWithGoogle}
+          onPress={handleSignInWithGoogle}
         />
         <Button
           name="Continue with Facebook"

@@ -2,19 +2,22 @@ import React from "react";
 
 import * as S from "./styles";
 
-import ImageUser from "../../../assets/images/user-image.png";
 import MenuAccount from "../../components/MenuAccount";
 import { menuAccount } from "../../components/MenuAccount/mock/menuAccount";
 import Button from "../../components/Button";
 
+import { useAuth } from "../../context/auth";
+
 const Account: React.FC = () => {
+  const { user, signOut } = useAuth();
+
   return (
     <S.Container>
       <S.Header>
-        <S.UserImage source={ImageUser} />
+        <S.UserImage source={{ uri: user.photo }} />
         <S.BoxInfo>
-          <S.Username>Afsar Hossen</S.Username>
-          <S.UserEmail>Imshuvo97@gmail.com</S.UserEmail>
+          <S.Username>{user.name}</S.Username>
+          <S.UserEmail>{user.email}</S.UserEmail>
         </S.BoxInfo>
       </S.Header>
       <S.Content>
@@ -31,7 +34,12 @@ const Account: React.FC = () => {
         })}
       </S.Content>
       <S.ButtonBox>
-        <Button name="Log Out" backgroundColor="gray" color="green" />
+        <Button
+          name="Log Out"
+          backgroundColor="gray"
+          color="green"
+          onPress={signOut}
+        />
       </S.ButtonBox>
     </S.Container>
   );
