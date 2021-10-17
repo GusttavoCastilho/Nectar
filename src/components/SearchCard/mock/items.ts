@@ -1,14 +1,7 @@
-import FrashFruitsImage from '../../../../assets/images/frashFruits.png'
-import CookingImage from '../../../../assets/images/cooking.png'
-import meatFishImage from '../../../../assets/images/meatFish.png'
-import snacksImage from '../../../../assets/images/snacks.png'
-import eggsImage from '../../../../assets/images/eggs.png'
-import beveragesImage from '../../../../assets/images/beverages.png'
-
 export const items = [
     {
         id: 1,
-        image: `${FrashFruitsImage}`,
+        image: require('../../../../assets/images/frashFruits.png'),
         title: 'Frash Fruits \n & Vegetable',
         color: '#EEF7F1',
         border: 'rgba(83, 177, 117, 0.7)',
@@ -17,7 +10,7 @@ export const items = [
     },
     {
         id: 2,
-        image: `${CookingImage}`,
+        image: require('../../../../assets/images/cooking.png'),
         title: 'Cooking Oil \n & Ghee',
         color: '#FEF6ED',
         border: 'rgba(248, 164, 76, 0.7)',
@@ -26,7 +19,7 @@ export const items = [
     },
     {
         id: 3,
-        image: `${meatFishImage}`,
+        image: require('../../../../assets/images/meatFish.png'),
         title: 'Meat & Fish',
         color: '#FDE8E4',
         border: '#F7A593',
@@ -35,7 +28,7 @@ export const items = [
     },
     {
         id: 4,
-        image: `${snacksImage}`,
+        image: require('../../../../assets/images/snacks.png'),
         title: 'Bakery & Snacks',
         color: '#F4EBF7',
         border: '#D3B0E0',
@@ -44,7 +37,7 @@ export const items = [
     },
     {
         id: 5,
-        image: `${eggsImage}`,
+        image: require('../../../../assets/images/eggs.png'),
         title: 'Dairy & Eggs',
         color: '#FFF8E5',
         border: '#FDE598',
@@ -53,7 +46,7 @@ export const items = [
     },
     {
         id: 6,
-        image: `${beveragesImage}`,
+        image: require('../../../../assets/images/beverages.png'),
         title: 'Beverages',
         color: '#EDF7FC',
         border: '#B7DFF5',
@@ -62,7 +55,7 @@ export const items = [
     },
     {
         id: 7,
-        image: `${eggsImage}`,
+        image: require('../../../../assets/images/eggs.png'),
         title: 'Dairy & Eggs',
         color: '#FFF8E5',
         border: '#FDE598',
@@ -71,7 +64,7 @@ export const items = [
     },
     {
         id: 8,
-        image: `${beveragesImage}`,
+        image: require('../../../../assets/images/beverages.png'),
         title: 'Beverages',
         color: '#EDF7FC',
         border: '#B7DFF5',
