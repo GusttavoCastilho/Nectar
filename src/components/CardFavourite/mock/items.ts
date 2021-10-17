@@ -1,14 +1,7 @@
-import Sprite from '../../../../assets/images/sprite.png'
-import Diet from '../../../../assets/images/dietCoke.png'
-import Grape from '../../../../assets/images/grapeJuice.png'
-import Coca from '../../../../assets/images/CocaCola.png'
-import Pepsi from '../../../../assets/images/pepsi.png'
-
-
 export const items = [
     {
         id: 1,
-        image: `${Sprite}`,
+        image: require('../../../../assets/images/sprite.png'),
         title: 'Sprite Can',
         description: '325ml, Price',
         price: '$1.50',
@@ -17,7 +10,7 @@ export const items = [
     },
     {
         id: 2,
-        image: `${Diet}`,
+        image: require('../../../../assets/images/dietCoke.png'),
         title: 'Diet Coke',
         description: '355ml, Price',
         price: '$1.99',
@@ -26,7 +19,7 @@ export const items = [
     },
     {
         id: 3,
-        image: `${Grape}`,
+        image: require('../../../../assets/images/grapeJuice.png'),
         title: 'Grape Juice',
         description: '2L, Price',
         price: '$15.50',
@@ -35,7 +28,7 @@ export const items = [
     },
     {
         id: 4,
-        image: `${Coca}`,
+        image: require('../../../../assets/images/CocaCola.png'),
         title: 'Coca Cola Can',
         description: '325ml, Price',
         price: '$4.99',
@@ -44,7 +37,7 @@ export const items = [
     },
     {
         id: 5,
-        image: `${Pepsi}`,
+        image: require('../../../../assets/images/pepsi.png'),
         title: 'Pepsi Can',
         description: '330ml, Price',
         price: '$4.99',

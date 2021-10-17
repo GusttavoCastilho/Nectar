@@ -1,6 +1,5 @@
 import React from "react";
 
-import { View, Text } from "react-native";
 import Button from "../../components/Button";
 import CardFavourite from "../../components/CardFavourite";
 import { items } from "../../components/CardFavourite/mock/items";
