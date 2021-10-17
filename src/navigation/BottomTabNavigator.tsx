@@ -1,51 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { View, TouchableOpacity, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import {
-  createBottomTabNavigator,
-  BottomTabBar,
-} from "@react-navigation/bottom-tabs";
-import { Dashboard, Explore, Cart, Favourite, Account } from '../screens'
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Dashboard, Explore, Cart, Favourite, Account } from "../screens";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
-import { ShopSvg, SearchSvg, CartSvg, FavouriteSvg, AccountSvg, ExploreSvg } from '../svg'
+import { ShopSvg, CartSvg, FavouriteSvg, AccountSvg, ExploreSvg } from "../svg";
 
-export const Tabs = (focused: boolean) => {
-  const [focus, setFocused] = useState(false)
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    if(navigation.isFocused()) {
-       setFocused(true);
-    } else {
-      setFocused(false);
-    }
-  },[focus])
-
-
+export const Tabs = () => {
   return (
     <>
       <Tab.Navigator
         tabBarOptions={{
           showLabel: true,
           adaptive: true,
-          activeTintColor: '#53B175',
-          inactiveTintColor: '#181725',
+          activeTintColor: "#53B175",
+          inactiveTintColor: "#181725",
           labelStyle: {
-            height: 20,
-            width: 50,
+            paddingBottom: 5,
           },
           style: {
             alignItems: "center",
             justifyContent: "center",
             borderTopWidth: 0,
-            backgroundColor: '#fff',
-            height: 50,
+            backgroundColor: "#fff",
+            height: 60,
             paddingBottom: 3,
           },
         }}
@@ -54,8 +33,7 @@ export const Tabs = (focused: boolean) => {
           name="shop"
           component={Dashboard}
           options={{
-            
-            tabBarIcon: ({ focused }) => <ShopSvg alterColor={focused} />
+            tabBarIcon: ({ focused }) => <ShopSvg alterColor={focused} />,
           }}
         />
 
@@ -63,31 +41,30 @@ export const Tabs = (focused: boolean) => {
           name="explore"
           component={Explore}
           options={{
-            tabBarIcon: ({ focused }) => <ExploreSvg alterColor={focused} />
+            tabBarIcon: ({ focused }) => <ExploreSvg alterColor={focused} />,
           }}
         />
         <Tab.Screen
           name="cart"
           component={Cart}
           options={{
-            tabBarIcon: ({ focused }) => <CartSvg alterColor={focused} />
+            tabBarIcon: ({ focused }) => <CartSvg alterColor={focused} />,
           }}
         />
         <Tab.Screen
           name="favourite"
           component={Favourite}
           options={{
-            tabBarIcon: ({ focused }) => <FavouriteSvg alterColor={focused} />
+            tabBarIcon: ({ focused }) => <FavouriteSvg alterColor={focused} />,
           }}
         />
         <Tab.Screen
           name="account"
           component={Account}
           options={{
-            tabBarIcon: ({ focused }) => <AccountSvg alterColor={focused}  />
+            tabBarIcon: ({ focused }) => <AccountSvg alterColor={focused} />,
           }}
         />
-
       </Tab.Navigator>
     </>
   );
